@@ -67,7 +67,7 @@ ROBOTSTXT_OBEY = False
 ITEM_PIPELINES = {
 #    "mkr.pipelines.MkrPipeline": 300,
 
-"mkr.pipelines.ImagesPipeline": 100,
+'scrapy.pipelines.images.ImagesPipeline': 100,
 
 }
 IMAGES_THUMBS = {
