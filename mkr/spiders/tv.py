@@ -41,11 +41,9 @@ class TvSpider(scrapy.Spider):
 
     def parse_shop(self, response):
         soup = BeautifulSoup(response.body, "html.parser")
-        shop_items = soup.select(".list > a")[:5]  # Отримуємо лише перші 5 елементів
+        shop_items = soup.select(".list__item")[:5]  # Отримуємо лише перші 5 елементів
         for shop in shop_items:
-            shop_name = shop.find(string=True, recursive=False)
-            print(f"7777777777777777777777777777777777777777777777777777777777777{shop_name}")
+            shop_name = shop.find("a", class_="shop__title").text.strip()
             yield ShopItem(name=shop_name)
-
 
         pass
